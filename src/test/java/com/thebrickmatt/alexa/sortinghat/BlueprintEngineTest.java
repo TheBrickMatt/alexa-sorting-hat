@@ -1,4 +1,4 @@
-package com.thebrickmatt.alexa.blueprint;
+package com.thebrickmatt.alexa.sortinghat;
 
 import org.junit.Ignore;
 import org.junit.Test;

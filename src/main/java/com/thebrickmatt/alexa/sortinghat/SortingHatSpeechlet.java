@@ -1,17 +1,20 @@
-package com.thebrickmatt.alexa.blueprint;
+package com.thebrickmatt.alexa.sortinghat;
 
 import com.amazon.speech.slu.Intent;
 import com.amazon.speech.speechlet.*;
-import com.thebrickmatt.alexa.blueprint.model.GameState;
-import com.thebrickmatt.alexa.blueprint.transform.SessionHelper;
-import com.thebrickmatt.alexa.blueprint.transform.SpeechBuilder;
+import com.google.common.collect.Sets;
+import com.thebrickmatt.alexa.sortinghat.model.GameState;
+import com.thebrickmatt.alexa.sortinghat.transform.SessionHelper;
+import com.thebrickmatt.alexa.sortinghat.transform.SpeechBuilder;
 
-public class BlueprintSpeechlet implements Speechlet {
+public class SortingHatSpeechlet implements Speechlet {
 
     public static final String MY_BLUEPRINT_INTENT = "BluePrintIntent";
+    public static final String SORT_PERSON_INTENT = "SortPersonIntent";
     public static final String AMAZON_STOP_INTENT = "AMAZON.StopIntent";
     public static final String AMAZON_CANCEL_INTENT = "AMAZON.CancelIntent";
     public static final String AMAZON_HELP_INTENT = "AMAZON.HelpIntent";
+    public static final String SLOT_PERSON_NAME = "PersonName";
 
     /**
      * Called when a new session is started
@@ -60,16 +63,51 @@ public class BlueprintSpeechlet implements Speechlet {
             return SpeechBuilder.wrapTellSpeech("Canceling. Good bye from blue print.");
         }
 
-        if (MY_BLUEPRINT_INTENT.equals(intentName)) {
-            if (gameState == GameState.INITIALIZING) {
-                sessionHelper.setGameState(GameState.RUNNING);
-                return SpeechBuilder.wrapAskSpeech("You gave a blue print intent, and we just initialized.  What next?", "What next?");
-            } else if (gameState == GameState.RUNNING) {
-                return SpeechBuilder.wrapAskSpeech("You gave a blue print intent, but we're already initialized.  What next?", "What next?");
+        if (SORT_PERSON_INTENT.equals(intentName)) {
+            final String personName = translateMungedNames(intent.getSlot(SLOT_PERSON_NAME).getValue());
+            if (personName == null) {
+                return SpeechBuilder.wrapTellSpeech("You asked me to sort someone I don't know");
+            } else if ("dobi".equalsIgnoreCase(personName)) {
+                return SpeechBuilder.wrapTellSpeech("Dobi has no house. He is a free elf.");
+            } else if ("brittany".equalsIgnoreCase(personName)) {
+                return SpeechBuilder.wrapTellSpeech(personName + " belongs in house Slytherin");
+            } else if ("allison".equalsIgnoreCase(personName)) {
+                return SpeechBuilder.wrapTellSpeech(personName + " belongs in house Ravenclaw");
+            } else if ("abby".equalsIgnoreCase(personName)) {
+                return SpeechBuilder.wrapTellSpeech(personName + " belongs in house Hufflepuff");
+            } else if ("colton".equalsIgnoreCase(personName)) {
+                return SpeechBuilder.wrapTellSpeech(personName + " belongs in house Griffindor");
+
+            } else {
+                System.out.println("sorting non-indexed person: " + personName);
+                return SpeechBuilder.wrapTellSpeech("You asked me to sort " + personName);
             }
         }
 
+
         return SpeechBuilder.wrapTellSpeech("I don't know how to handle your intent, which was " + intentName);
+    }
+
+    private String translateMungedNames(String value) {
+        if (value == null) {
+            return null;
+        }
+
+        final String DOBI = "dobi";
+        if ("dhabi".equals(value)) {
+            return DOBI;
+        }
+        if ("dobby".equals(value)) {
+            return DOBI;
+        }
+        if ("dog".equals(value)) {
+            return DOBI;
+        }
+        if ("doobie".equals(value)) {
+            return DOBI;
+        }
+
+        return value;
     }
 
     @Override

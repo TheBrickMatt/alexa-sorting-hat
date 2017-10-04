@@ -1,11 +1,4 @@
-BluePrintIntent howdy blue print
-BluePrintIntent howdy blueprint
-BluePrintIntent hello blueprint
-BluePrintIntent hello blue print
-BluePrintIntent hey there blueprint
-BluePrintIntent hey there blue print
-BluePrintIntent what's up blue print
-BluePrintIntent what's up blueprint
-BluePrintIntent are you feeling blue
-BluePrintIntent are you feeling blue print
-BluePrintIntent are you feeling blueprint
+SortPersonIntent what house should {PersonName} be in
+SortPersonIntent what house {PersonName} should be in
+SortPersonIntent tell us about {PersonName}
+SortPersonIntent what do you think about {PersonName}

@@ -1,7 +1,7 @@
-package com.thebrickmatt.alexa.blueprint.transform;
+package com.thebrickmatt.alexa.sortinghat.transform;
 
 import com.amazon.speech.speechlet.Session;
-import com.thebrickmatt.alexa.blueprint.model.GameState;
+import com.thebrickmatt.alexa.sortinghat.model.GameState;
 
 public class SessionHelper {
 

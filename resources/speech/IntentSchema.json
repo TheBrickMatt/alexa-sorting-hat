@@ -1,10 +1,22 @@
 {
   "intents": [
     {
+      "slots": [
+        {
+          "name": "PersonName",
+          "type": "LIST_OF_PEOPLE"
+        }
+      ],
+      "intent": "SortPersonIntent"
+    },
+    {
       "intent": "BluePrintIntent"
     },
     {
       "intent": "AMAZON.HelpIntent"
+    },
+    {
+      "intent": "AMAZON.CancelIntent"
     },
     {
       "intent": "AMAZON.StopIntent"

@@ -1,4 +1,4 @@
-package com.thebrickmatt.alexa.blueprint;
+package com.thebrickmatt.alexa.sortinghat;
 
 import com.amazon.speech.speechlet.lambda.SpeechletRequestStreamHandler;
 
@@ -6,7 +6,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 // This is the entry point for Lamba functions
-public final class BlueprintLambaEntryPoint extends SpeechletRequestStreamHandler {
+public final class SortingHatLambaEntryPoint extends SpeechletRequestStreamHandler {
 
     private static final Set<String> supportedApplicationIds;
 
@@ -16,10 +16,10 @@ public final class BlueprintLambaEntryPoint extends SpeechletRequestStreamHandle
          * Alexa Skill and put the relevant Application Ids in this Set.
          */
         supportedApplicationIds = new HashSet<String>();
-        supportedApplicationIds.add("ARN from your Alexa skill"); // TODO: update with your skill's ARN
+        supportedApplicationIds.add("amzn1.ask.skill.30d30149-86d9-4e07-9e51-79f2803639e7");
     }
 
-    public BlueprintLambaEntryPoint() {
-        super(new BlueprintSpeechlet(), supportedApplicationIds);
+    public SortingHatLambaEntryPoint() {
+        super(new SortingHatSpeechlet(), supportedApplicationIds);
     }
 }

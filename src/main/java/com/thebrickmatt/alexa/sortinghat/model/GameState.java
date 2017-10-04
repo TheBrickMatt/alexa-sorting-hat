@@ -1,4 +1,4 @@
-package com.thebrickmatt.alexa.blueprint.model;
+package com.thebrickmatt.alexa.sortinghat.model;
 
 public enum GameState {
     INITIALIZING,

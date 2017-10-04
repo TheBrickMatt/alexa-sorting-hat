@@ -1,4 +1,4 @@
-package com.thebrickmatt.alexa.blueprint.transform;
+package com.thebrickmatt.alexa.sortinghat.transform;
 
 import com.amazon.speech.speechlet.SpeechletResponse;
 import com.amazon.speech.ui.Reprompt;
