@@ -24,3 +24,11 @@ Links to the Alexa documentation
 - [Getting Started](https://developer.amazon.com/appsandservices/solutions/alexa/alexa-skills-kit/getting-started-guide)
 - [Invocation Name Guidelines](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/choosing-the-invocation-name-for-an-alexa-skill)
 - [Developing an Alexa Skill as an AWS Lambda Function](https://developer.amazon.com/appsandservices/solutions/alexa/alexa-skills-kit/docs/developing-an-alexa-skill-as-a-lambda-function)
+
+
+## Audio File requirements
+Using Audacity
+- Open the file to convert.
+- Set the Project Rate in the lower-left corner to 16000.
+- Click File > Export Audio and change the Save as type to MP3 Files.
+- Click Options, set the Quality to 48 kbps and the Bit Rate Mode to Constant.
